@@ -13,7 +13,7 @@
 jQuery(document).ready(function(){
   var SERVER_HOST = $(".SERVER_HOST").val();
   console.log(SERVER_HOST);
-  var SERVER_HOST = SERVER_HOST || 'http://ban.rj-geek.com/';
+  var SERVER_HOST = SERVER_HOST || 'http://demo.o2omobile.cn/';
   $('#model-file-uploader').appendTo('body');
   $('.file-uploader').on('click', function(){
     var _this   = $(this);
