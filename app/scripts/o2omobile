@@ -1,0 +1,39 @@
+#!/bin/bash
+#chkconfig: 2345 70 30  
+#description:o2omobile service  
+#processname: o2omobile
+. /etc/rc.d/init.d/functions
+
+CUR_PATH="$(dirname `readlink -f ${BASH_SOURCE[0]}`)"
+
+case "$1" in
+start)
+echo -e "start push message...             \033[0;32;m[SUCCESS]\033[0m"
+#这里的数字后面的ecmobile_script用于杀死进程所用
+nohup php $CUR_PATH/../../artisan queue:listen --tries=3 > $CUR_PATH/../storage/logs/queue.log & 
+;;
+
+stop)
+echo -e "stop push message...             \033[0;32;m[SUCCESS]\033[0m"
+ps aux | grep 'artisan queue' | grep -v "grep" | awk '{print $2}'| xargs kill -s 9
+;;
+
+restart)
+  service o2omobile stop
+  service o2omobile start
+;;
+
+status)
+if test $( pgrep -f artisan | wc -l ) -eq 0 
+then 
+echo "not in run" 
+else 
+echo "runing" 
+fi 
+;;
+
+*)
+echo "Usage: $0 {start|stop|restart|status}"
+exit 1
+;;
+esac
