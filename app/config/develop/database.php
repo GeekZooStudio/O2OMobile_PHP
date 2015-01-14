@@ -21,8 +21,8 @@ return array(
     'connections' => array(
 
         'mysql' => array(
-            'host'      => 'localhost',
-            'database'  => 'o2omobile',
+            'host'      => '<Your information>',
+            'database'  => '<Your information>',
             'username'  => '<Your information>',
             'password'  => '<Your information>',
             'prefix'    => 'o2omobile_',

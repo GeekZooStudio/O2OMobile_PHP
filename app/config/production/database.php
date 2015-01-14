@@ -21,8 +21,8 @@ return array(
     'connections' => array(
 
             'mysql' => array(
-                    'host'      => 'geek-zoo.com',
-                    'database'  => 'api.o2omobile.com.cn',
+                    'host'      => '<Your information>',
+                    'database'  => '<Your information>',
                     'username'  => '<Your information>',
                     'password'  => '<Your information>',
                     'prefix'    => 'o2omobile_',
